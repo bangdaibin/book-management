@@ -45,7 +45,15 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
-   
+  resources :categories do
+    resources :books
+  end 
+  resources :authors do
+    resources :books
+  end 
+   resources :publishers do
+    resources :books
+  end 
   
   resources :users
   resources :books do

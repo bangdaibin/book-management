@@ -1,15 +1,22 @@
 class BooksController < ApplicationController
   def index
+   @books = Book.paginate( page: params[:page] )
    if params[:search]
       @books = Book.search(params[:search]).page(params[:page])
-  else
-   if params[:category].blank?
-			@books = Book.paginate( page: params[:page] )
-		else
-			@category_id = Category.find_by_category_name(params[:category]).id
-			@books = Book.where(:category_id => @category_id).paginate( page: params[:page] )
-		end
-  end
+   elsif params[:category_id]
+			@category = Category.find params[:category_id]
+      @books = @category.books.paginate( page: params[:page] )
+   elsif params[:author_id]
+      @author = Author.find params[:author_id]
+      @books = @author.books.paginate( page: params[:page] )
+   elsif params[:publisher_id]
+      @publisher = Publisher.find params[:publisher_id]
+      @books = @publisher.books.paginate( page: params[:page] )
+
+	 end
+   
+			
+
    respond_to do|format|
       format.html
       format.xls{send_data @books.to_csv(col_sep: "\t") }

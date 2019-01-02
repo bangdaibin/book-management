@@ -6,7 +6,6 @@
     <%= stylesheet_link_tag    'application', media: 'all',
                                               'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= render 'layouts/shim' %>
   </head>
   <body>
 
@@ -16,12 +15,13 @@
     <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
     <% end %>
+    
     <%= yield %>
    
   </div>
-   <div class="container">
+
       <%= render 'layouts/footer' %>
-    </div>
+
 
     
   </body>

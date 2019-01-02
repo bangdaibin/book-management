@@ -1,20 +1,6 @@
 <% provide(:title, 'All author') %>
 <h1>All Author</h1>
-<%= form_tag authors_path, method: :get do %>
- <div class="row">
- 	<div class="col-md-4 col-md-offset-4">
-  <div class="input-group">
-  <%= form_tag(authors_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Authors", class: 'form-control' %>
-    <span class="input-group-btn">
-      <%= submit_tag "Search", class: 'btn btn-primary' %>
-    </span>
-  <% end %>
-</div>
-</div>
-</div>
-</br>
-<% end %>
+
 <%= will_paginate %>
 
 <ul class="author">
