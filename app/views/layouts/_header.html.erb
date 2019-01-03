@@ -43,12 +43,17 @@
                                             <% end %>
                                     </ul>
                                     </li>    
-                                    <li><%= link_to "AUTHOR", authors_path %></li>
-                                    <li><%= link_to "PUBLISHER", publishers_path %></li>
+                                    
                                   
                                     <li><%= link_to "ACCOUNT", root_path %></a>
                                     <ul class="sub-menu">
                                         <% if logged_in? %>
+                                         <% if current_user.admin  %>
+                                            <li><%= link_to "MANAGE CATEGORY", categories_path%></li>
+                                            <li><%= link_to "MANAGE AUTHOR", authors_path %></li>
+                                    <li><%= link_to "MANAGE PUBLISHER", publishers_path %></li>
+                                        <li><%= link_to "MANAGE USER", users_path %></li>
+                                        <% end %>
                                             <li><%= link_to "Profile", current_user %></li>
                                              <li><%= link_to "Settings", edit_user_path(current_user) %></li>
                                         <li class="divider"></li>

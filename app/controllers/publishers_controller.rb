@@ -61,7 +61,7 @@ class PublishersController < ApplicationController
   private
 
   def publisher_params
-    params.require(:publisher).permit(:publisher_name,:address)
+    params.require(:publisher).permit(:publisher_name,:address,:email,:phone)
   end
 
   # Before filters

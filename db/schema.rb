@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180429152438) do
+ActiveRecord::Schema.define(version: 20190103105433) do
 
   create_table "authors", force: :cascade do |t|
     t.string "author_name"
     t.datetime "birth"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email"
+    t.integer "phone"
   end
 
   create_table "books", force: :cascade do |t|
@@ -44,6 +46,8 @@ ActiveRecord::Schema.define(version: 20180429152438) do
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "phone"
+    t.string "email"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -75,6 +79,8 @@ ActiveRecord::Schema.define(version: 20180429152438) do
     t.boolean "admin", default: false
     t.string "reset_digest"
     t.datetime "reset_sent_at"
+    t.integer "phone"
+    t.string "address"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

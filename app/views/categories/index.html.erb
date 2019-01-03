@@ -1,15 +1,36 @@
-<% provide(:title, 'All category') %>
-<h1>All Category</h1>
-
-  <%= will_paginate %>
-<ul class="category">
-      <%= render @categories %>
-</ul>
-
-<%= will_paginate %>
+<% provide(:title, 'All Category') %>
+<div class="banner-title text-center">
+         <h2><span>ALL CATEGORIES</span></h2>
+</div>
 <% if logged_in? %>
+  <% if current_user.admin? %>  
+<%= link_to 'Add New Category', new_category_path, class: "btn btn-primary", style: "color: #ffffff" %>
+    
+  <% end %>
+  <table class="table table-hover table-responsive">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Category Name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.each do |a| %>
+      <tr>
+      	  <td><%= a.id %></td>
+        <td><%= link_to a.category_name, a %></td>
+       
+              
+        <td><%= link_to 'Edit', edit_category_path(a), class: "btn btn-warning" , :style => "color: #ffffff"%></td>
+        <td><%= link_to 'Delete', a, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" , :style => "color: #ffffff"%></td>
+        <% end %>
+      </table>
+      <% if logged_in? %>
 	<% if current_user.admin? %>	
-		<br><%= link_to "Add Category", new_category_path %></br>
-		<br><%= link_to "Export to XLS", categories_path(format: "xls") %></br>
+		<br><%= link_to "Export to XLS", authors_path(format: "xls") %></br>
 <% end %>
+<% end %>
+<%= will_paginate %>
+
 <% end %>

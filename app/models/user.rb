@@ -4,7 +4,7 @@ class User < ApplicationRecord
     has_many :active_relationships, class_name:  "Relationship",
              foreign_key: "follower_id",
              dependent:   :destroy
-
+    self.per_page = 10
     has_many :passive_relationships, class_name:  "Relationship",
              foreign_key: "followed_id",
              dependent:   :destroy
