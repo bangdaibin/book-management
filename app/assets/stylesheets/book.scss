@@ -32,15 +32,15 @@
 /* Book styles */
 
 .book {
-	height: 350px;
-	width: 250px;
+	height: 330px;
+	width: 220px;
 	margin-bottom: 40px;
 	@include background-tile;
 }
 
 .book-show {
-	height: 438px;
-	width: 325px;
+	height: 400px;
+	width: 300px;
 	@include background-tile;
 }
 
