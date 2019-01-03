@@ -40,7 +40,8 @@ gem 'turbolinks', '5.0.1'
 gem 'jbuilder', '2.7.0'
 gem 'jquery-rails'
 gem 'bcrypt-ruby'
-gem 'paperclip'
+gem 'paperclip', '~> 5.1.0'
+gem 'aws-sdk',   '~> 2.6'
 gem "figaro"
 
 # Use Redis adapter to run Action Cable in production

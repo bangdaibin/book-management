@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create!(name:  "admin1",
-             email: "admin1@gmail.com",
+User.create!(name:  "admin",
+             email: "admin@gmail.com",
              password:              "12345678",
              password_confirmation: "12345678",
              admin: true)
@@ -29,9 +29,3 @@ end
 # end
 
 # Set up the fake following relationships
-users = User.all
-user  = users.first
-following = users[2..50]
-followers = users[3..40]
-following.each { |followed| user.follow(followed) }
-followers.each { |follower| follower.follow(user) }
