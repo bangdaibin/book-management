@@ -41,6 +41,7 @@ gem 'jbuilder', '2.7.0'
 gem 'jquery-rails'
 gem 'bcrypt-ruby'
 gem 'paperclip'
+gem "figaro"
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
