@@ -2,6 +2,7 @@ class Category < ApplicationRecord
 
 	has_many :books, dependent:   :destroy
 	validates :category_name, presence: true, length: {maximum: 50 }
+	self.per_page = 10
 	def self.search(search)
   # Title is for the above case, the OP incorrectly had 'name'
  	 where("category_name LIKE ?", "%#{search}%")
