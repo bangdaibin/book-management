@@ -3,7 +3,7 @@
     <%= f.label :title %>
     <%= f.text_field :title, class: 'form-control' %>
     <%= f.label :description %>
-    <%= f.text_field :description, class: 'form-control' %>
+       <%= f.text_area(:description, :size => "50x10")%>
     <%= f.label :author %>
     <%=	f.fields_for :author_attributes do |author| %>
     <%= author.text_field :author_name, class: 'form-control' %>
