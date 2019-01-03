@@ -22,6 +22,14 @@ User.create!(name:  "admin",
                password_confirmation: password)
 end
 
+category_list = [
+  "Kid",
+  "Biographies",
+  "Business","Education","History","Entertainment","Medical"]
+
+category_list.each do |name|
+  Category.create!( category_name: name)
+end
 # users = User.order(:created_at).take(6)
 # 50.times do
 #   content = Faker::Lorem.sentence(5)
